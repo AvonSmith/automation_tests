@@ -34,4 +34,11 @@ public class ElementsTest extends BaseTest{
                     .submit();
         Assert.assertEquals(elementsPage.getOutput(elementsPage.getOutputCurrentAddress()), address);
     }
+
+    @Test(dataProvider = "address", dataProviderClass = DataProviders.class)
+    public void permananetAddressTextArea(String address) {
+        elementsPage.enter(elementsPage.permanentAddress(), address)
+                    .submit();
+        Assert.assertEquals(elementsPage.getOutput(elementsPage.getOutputPermanentAddress()), address);
+    }
 }
