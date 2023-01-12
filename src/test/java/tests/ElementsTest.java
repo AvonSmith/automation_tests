@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static constants.Constants.Urls.MAIN_URL;
-import static constants.Constants.Urls.TEXT_BOX_URL;
 
 public class ElementsTest extends BaseTest{
     @BeforeTest
@@ -19,7 +18,13 @@ public class ElementsTest extends BaseTest{
     public void fullNameField(String params) {
         elementsPage.enter(elementsPage.fullName(), params)
                     .submit();
-//        System.out.println(elementsPage.getFullNameOutput());
-        Assert.assertEquals(elementsPage.getFullNameOutput(), params);
+        Assert.assertEquals(elementsPage.getOutput(elementsPage.getOutputFullName()), params);
+    }
+
+    @Test(dataProvider = "email", dataProviderClass = DataProviders.class)
+    public void emailField(String params) {
+        elementsPage.enter(elementsPage.email(), params)
+                    .submit();
+        Assert.assertEquals(elementsPage.getOutput(elementsPage.getOutputEmail()), params);
     }
 }

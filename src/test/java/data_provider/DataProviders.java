@@ -8,4 +8,9 @@ public class DataProviders {
     public static Object[][] params(){
         return new Object[][] {{"Avon Smith"}, {"1234567890"}, {"! #$%&'*+-/=?^_`{|}~"}, {"Петр Саныч"}};
     }
+
+    @DataProvider(name = "email")
+    public static Object[][] email() {
+        return new Object[][] {{"ivan@gmail.com"}, {"1234567890@emails.tinkoff.ru"}, {"IVAN@11111.ru"}};
+    }
 }

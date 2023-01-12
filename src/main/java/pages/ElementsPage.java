@@ -77,8 +77,24 @@ public class ElementsPage extends BasePage {
         permanentAddress.sendKeys(text);
     }
 
-    public String getFullNameOutput() {
-        return outputFullName.getText().split(":")[1];
+    public WebElement getOutputFullName() {
+        return outputFullName;
+    }
+
+    public WebElement getOutputEmail() {
+        return outputEmail;
+    }
+
+    public WebElement getOutputCurrentAddress() {
+        return outputCurrentAddress;
+    }
+
+    public WebElement getOutputPermanentAddress() {
+        return outputPermanentAddress;
+    }
+
+    public String getOutput(WebElement element) {
+        return element.getText().split(":")[1];
     }
 
     public void startTest() {
