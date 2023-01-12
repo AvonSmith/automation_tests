@@ -22,9 +22,16 @@ public class ElementsTest extends BaseTest{
     }
 
     @Test(dataProvider = "email", dataProviderClass = DataProviders.class)
-    public void emailField(String params) {
-        elementsPage.enter(elementsPage.email(), params)
+    public void emailField(String email) {
+        elementsPage.enter(elementsPage.email(), email)
                     .submit();
-        Assert.assertEquals(elementsPage.getOutput(elementsPage.getOutputEmail()), params);
+        Assert.assertEquals(elementsPage.getOutput(elementsPage.getOutputEmail()), email);
+    }
+
+    @Test(dataProvider = "address", dataProviderClass = DataProviders.class)
+    public void currentAddressTextArea(String address) {
+        elementsPage.enter(elementsPage.currentAddress(), address)
+                    .submit();
+        Assert.assertEquals(elementsPage.getOutput(elementsPage.getOutputCurrentAddress()), address);
     }
 }
