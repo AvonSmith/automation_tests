@@ -5,6 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.Test;
 
+import static constants.Constants.Selectors.IMPRESSIVE_RADIOBUTTON;
+import static constants.Constants.Selectors.YES_RADIOBUTTON;
 import static constants.Constants.Urls.MAIN_URL;
 
 public class    ElementsTest extends BaseTest{
@@ -53,5 +55,19 @@ public class    ElementsTest extends BaseTest{
     public void checkAllCheckBoxes() {
         elementsPage.checkAllCheckBoxes();
         Assert.assertTrue(elementsPage.checkboxState());
+    }
+
+    @BeforeGroups(groups = "radiobutton")
+    public void radiobutton() {
+        page.open(frameworkProperties.getProperty(MAIN_URL));
+        elementsPage.openRadiobutton();
+    }
+
+    @Test(groups = "radiobutton")
+    public void radiobuttonTest() {
+        elementsPage.pickRadioButton(YES_RADIOBUTTON);
+        Assert.assertTrue(elementsPage.radioButtonResult());
+        elementsPage.pickRadioButton(IMPRESSIVE_RADIOBUTTON);
+        Assert.assertFalse(elementsPage.radioButtonResult());
     }
 }

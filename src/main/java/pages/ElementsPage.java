@@ -1,11 +1,9 @@
 package pages;
 
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ElementsPage extends BasePage {
@@ -50,6 +48,9 @@ public class ElementsPage extends BasePage {
     @FindBy(xpath = "//span[text()='Check Box'] ")
     private WebElement checkBox;
 
+    @FindBy(xpath = "//span[text()='Radio Button']")
+    private WebElement radioButton;
+
     @FindBy(xpath = "//span[@class='rct-checkbox']")
     private List<WebElement> checkboxList;
 
@@ -58,6 +59,33 @@ public class ElementsPage extends BasePage {
 
     @FindBy(xpath = "//*[contains(@class, 'rct-icon rct-icon-')][contains(@class, 'check')] ")
     private List<WebElement> checkBoxState;
+
+    @FindBy(xpath = "//label[@for='yesRadio']")
+    private WebElement yesRadioButton;
+
+    @FindBy(xpath = "//label[@for='impressiveRadio']")
+    private WebElement impressiveRadioButton;
+
+    @FindBy(xpath = "//span[@class='text-success']")
+    private WebElement radioButtonResult;
+
+    public void pickRadioButton(String radioButton) {
+        if (radioButton.equals("Yes"))
+            yesRadioButton.click();
+        else if (radioButton.equals("Impressive"))
+            impressiveRadioButton.click();
+        else
+            System.out.println("Wrong radio button selection parameter!");
+    }
+
+    // For the 'Yes' use assertTrue, for the 'Impressive' use assertFalse
+    public Boolean radioButtonResult() {
+        if (radioButtonResult.getText().equals("Yes"))
+            return true;
+        else if (radioButtonResult.getText().equals("Impressive"))
+            return false;
+        else return null;
+    }
 
     public ElementsPage enter(WebElement element, String text) {
         element.clear();
@@ -98,6 +126,11 @@ public class ElementsPage extends BasePage {
     public void openCheckbox() {
         elements.click();
         checkBox.click();
+    }
+
+    public void openRadiobutton() {
+        elements.click();
+        radioButton.click();
     }
 
     public void submit() {

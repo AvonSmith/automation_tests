@@ -18,4 +18,8 @@ public class Constants {
         public static final String LINKS_URL = "links_url";
         public static final String DYNAMIC_PROPERTIES_URL = "dynamic_properties_url";
     }
+    public static class Selectors {
+        public static final String YES_RADIOBUTTON = "Yes";
+        public static final String IMPRESSIVE_RADIOBUTTON = "Impressive";
+    }
 }
