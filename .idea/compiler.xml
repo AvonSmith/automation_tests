@@ -9,5 +9,8 @@
         <module name="ThreadQa_testng" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ThreadQa_testng" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
