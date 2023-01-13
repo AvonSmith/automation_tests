@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -51,6 +52,9 @@ public class ElementsPage extends BasePage {
     @FindBy(xpath = "//span[text()='Radio Button']")
     private WebElement radioButton;
 
+    @FindBy(xpath = "//span[text()='Buttons']")
+    private WebElement buttons;
+
     @FindBy(xpath = "//span[@class='rct-checkbox']")
     private List<WebElement> checkboxList;
 
@@ -68,6 +72,48 @@ public class ElementsPage extends BasePage {
 
     @FindBy(xpath = "//span[@class='text-success']")
     private WebElement radioButtonResult;
+
+    @FindBy(xpath = "//button[@id='doubleClickBtn']")
+    private WebElement doubleClickButton;
+
+    @FindBy(xpath = "//button[@id='rightClickBtn']")
+    private WebElement rightClickButton;
+
+    @FindBy(xpath = "//button[text()='Click Me'] ")
+    private WebElement oneClickButton;
+
+    public Boolean getDoubleClickMessage() {
+        return doubleClickMessage.isDisplayed();
+    }
+
+    public Boolean getRightClickMessage() {
+        return rightClickMessage.isDisplayed();
+    }
+
+    public Boolean getDynamicClickMessage() {
+        return dynamicClickMessage.isDisplayed();
+    }
+
+    @FindBy(xpath = "//*[@id='doubleClickMessage']")
+    private WebElement doubleClickMessage;
+
+    @FindBy(xpath = "//*[@id='rightClickMessage']")
+    private WebElement rightClickMessage;
+
+    @FindBy(xpath = "//*[@id='dynamicClickMessage']")
+    private WebElement dynamicClickMessage;
+
+    public WebElement getDoubleClickButton() {
+        return doubleClickButton;
+    }
+
+    public WebElement getRightClickButton() {
+        return rightClickButton;
+    }
+
+    public WebElement getOneClickButton() {
+        return oneClickButton;
+    }
 
     public void pickRadioButton(String radioButton) {
         if (radioButton.equals("Yes"))
@@ -131,6 +177,11 @@ public class ElementsPage extends BasePage {
     public void openRadiobutton() {
         elements.click();
         radioButton.click();
+    }
+
+    public void openButtons() {
+        elements.click();
+        buttons.click();
     }
 
     public void submit() {

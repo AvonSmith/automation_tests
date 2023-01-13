@@ -70,4 +70,20 @@ public class    ElementsTest extends BaseTest{
         elementsPage.pickRadioButton(IMPRESSIVE_RADIOBUTTON);
         Assert.assertFalse(elementsPage.radioButtonResult());
     }
+
+    @BeforeGroups(groups = "buttons")
+    public void buttons() {
+        page.open(frameworkProperties.getProperty(MAIN_URL));
+        elementsPage.openButtons();
+    }
+
+    @Test(groups = "buttons")
+    public void buttonsTest() {
+        action.doubleClick(elementsPage.getDoubleClickButton());
+        Assert.assertTrue(elementsPage.getDoubleClickMessage());
+        action.rightClick(elementsPage.getRightClickButton());
+        Assert.assertTrue(elementsPage.getRightClickMessage());
+        action.oneClick(elementsPage.getOneClickButton());
+        Assert.assertTrue(elementsPage.getDynamicClickMessage());
+    }
 }
