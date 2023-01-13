@@ -2,7 +2,14 @@ package helper;
 
 import driver_manager.DriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static constants.Constants.TimeoutVariable.EXPLICIT_WAIT;
 
 public class Page {
     private WebDriver driver;
@@ -18,7 +25,7 @@ public class Page {
 
     public static void sleepForFewSeconds() {
         try {
-            Thread.sleep (3000L);
+            Thread.sleep (6000L);
         } catch (Exception ignored) {}
     }
 
@@ -26,7 +33,15 @@ public class Page {
 //        new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element)).click();
 //    }
 //
-//    public static WebElement waitUntilElementIsVisible(WebElement element) {
-//        return new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.e(element));
-//    }
+    public WebElement waitUntilElementIsClickable(WebElement element) {
+        return new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public WebElement waitUntilElementIsVisible(WebElement element) {
+        return new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public Boolean waitUntilChangeColor(WebElement element, String attribute, String value) {
+        return new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.attributeContains(element, attribute,value));
+    }
 }

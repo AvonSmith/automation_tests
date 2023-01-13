@@ -3,11 +3,12 @@ package tests;
 import data_provider.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeGroups;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import static constants.Constants.Selectors.IMPRESSIVE_RADIOBUTTON;
-import static constants.Constants.Selectors.YES_RADIOBUTTON;
+import static constants.Constants.Selectors.*;
 import static constants.Constants.Urls.MAIN_URL;
+import static helper.Page.sleepForFewSeconds;
 
 public class    ElementsTest extends BaseTest{
 
@@ -85,5 +86,18 @@ public class    ElementsTest extends BaseTest{
         Assert.assertTrue(elementsPage.getRightClickMessage());
         action.oneClick(elementsPage.getOneClickButton());
         Assert.assertTrue(elementsPage.getDynamicClickMessage());
+    }
+
+    @BeforeGroups(groups = "dynamicProperties")
+    public void dynamicProperties() {
+        page.open(frameworkProperties.getProperty(MAIN_URL));
+        elementsPage.openDynamicProperties();
+    }
+
+    @Test(groups = "dynamicProperties")
+    public void dynamicPropertiesTest() {
+        page.waitUntilElementIsClickable(elementsPage.getEnableAfterButton());
+        page.waitUntilElementIsVisible(elementsPage.getVisibleAfterButton());
+        page.waitUntilChangeColor(elementsPage.getColorChangeButton(), COLOR_ATTRIBUTE, RED_COLOR);
     }
 }

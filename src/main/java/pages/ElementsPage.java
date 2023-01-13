@@ -55,6 +55,9 @@ public class ElementsPage extends BasePage {
     @FindBy(xpath = "//span[text()='Buttons']")
     private WebElement buttons;
 
+    @FindBy(xpath = "//span[text()='Dynamic Properties']")
+    private WebElement dynamicProperties;
+
     @FindBy(xpath = "//span[@class='rct-checkbox']")
     private List<WebElement> checkboxList;
 
@@ -82,16 +85,25 @@ public class ElementsPage extends BasePage {
     @FindBy(xpath = "//button[text()='Click Me'] ")
     private WebElement oneClickButton;
 
-    public Boolean getDoubleClickMessage() {
-        return doubleClickMessage.isDisplayed();
+    @FindBy(xpath = "//button[@id='enableAfter']")
+    private WebElement enableAfterButton;
+
+    @FindBy(xpath = "//button[@id='colorChange']")
+    private WebElement colorChangeButton;
+
+    @FindBy(xpath = "//button[@id='visibleAfter'] ")
+    private WebElement visibleAfterButton;
+
+    public WebElement getEnableAfterButton() {
+        return enableAfterButton;
     }
 
-    public Boolean getRightClickMessage() {
-        return rightClickMessage.isDisplayed();
+    public WebElement getColorChangeButton() {
+        return colorChangeButton;
     }
 
-    public Boolean getDynamicClickMessage() {
-        return dynamicClickMessage.isDisplayed();
+    public WebElement getVisibleAfterButton() {
+        return visibleAfterButton;
     }
 
     @FindBy(xpath = "//*[@id='doubleClickMessage']")
@@ -103,17 +115,7 @@ public class ElementsPage extends BasePage {
     @FindBy(xpath = "//*[@id='dynamicClickMessage']")
     private WebElement dynamicClickMessage;
 
-    public WebElement getDoubleClickButton() {
-        return doubleClickButton;
-    }
 
-    public WebElement getRightClickButton() {
-        return rightClickButton;
-    }
-
-    public WebElement getOneClickButton() {
-        return oneClickButton;
-    }
 
     public void pickRadioButton(String radioButton) {
         if (radioButton.equals("Yes"))
@@ -184,6 +186,11 @@ public class ElementsPage extends BasePage {
         buttons.click();
     }
 
+    public void openDynamicProperties() {
+        elements.click();
+        dynamicProperties.click();
+    }
+
     public void submit() {
         submitButton.click();
     }
@@ -218,5 +225,29 @@ public class ElementsPage extends BasePage {
 
     public WebElement getOutputPermanentAddress() {
         return outputPermanentAddress;
+    }
+
+    public WebElement getDoubleClickButton() {
+        return doubleClickButton;
+    }
+
+    public WebElement getRightClickButton() {
+        return rightClickButton;
+    }
+
+    public WebElement getOneClickButton() {
+        return oneClickButton;
+    }
+
+    public Boolean getDoubleClickMessage() {
+        return doubleClickMessage.isDisplayed();
+    }
+
+    public Boolean getRightClickMessage() {
+        return rightClickMessage.isDisplayed();
+    }
+
+    public Boolean getDynamicClickMessage() {
+        return dynamicClickMessage.isDisplayed();
     }
 }
