@@ -3,16 +3,15 @@ package tests;
 import data_provider.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeGroups;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static constants.Constants.Selectors.*;
 import static constants.Constants.Urls.MAIN_URL;
-import static helper.Page.sleepForFewSeconds;
 
-public class    ElementsTest extends BaseTest{
+public class ElementsTest extends BaseTest{
 
-    @BeforeGroups(groups = "elements")
+    @BeforeMethod(onlyForGroups = "elements")
     public void elements() {
         page.open(frameworkProperties.getProperty(MAIN_URL));
         elementsPage.openTextBox();
