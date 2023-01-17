@@ -94,18 +94,6 @@ public class ElementsPage extends BasePage {
     @FindBy(xpath = "//button[@id='visibleAfter'] ")
     private WebElement visibleAfterButton;
 
-    public WebElement getEnableAfterButton() {
-        return enableAfterButton;
-    }
-
-    public WebElement getColorChangeButton() {
-        return colorChangeButton;
-    }
-
-    public WebElement getVisibleAfterButton() {
-        return visibleAfterButton;
-    }
-
     @FindBy(xpath = "//*[@id='doubleClickMessage']")
     private WebElement doubleClickMessage;
 
@@ -114,8 +102,6 @@ public class ElementsPage extends BasePage {
 
     @FindBy(xpath = "//*[@id='dynamicClickMessage']")
     private WebElement dynamicClickMessage;
-
-
 
     public void pickRadioButton(String radioButton) {
         if (radioButton.equals("Yes"))
@@ -237,6 +223,18 @@ public class ElementsPage extends BasePage {
 
     public WebElement getOneClickButton() {
         return oneClickButton;
+    }
+
+    public WebElement getEnableAfterButton() {
+        return enableAfterButton;
+    }
+
+    public WebElement getColorChangeButton() {
+        return colorChangeButton;
+    }
+
+    public WebElement getVisibleAfterButton() {
+        return visibleAfterButton;
     }
 
     public Boolean getDoubleClickMessage() {

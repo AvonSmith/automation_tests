@@ -1,8 +1,10 @@
 package helper;
 
 import driver_manager.DriverManager;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class ActionsMethods {
 
@@ -13,17 +15,17 @@ public class ActionsMethods {
     }
 
     public void doubleClick(WebElement element) {
-        org.openqa.selenium.interactions.Actions action = new org.openqa.selenium.interactions.Actions(driver);
+        Actions action = new Actions(driver);
         action.doubleClick(element).perform();
     }
 
     public void rightClick(WebElement element) {
-        org.openqa.selenium.interactions.Actions action = new org.openqa.selenium.interactions.Actions(driver);
+        Actions action = new Actions(driver);
         action.contextClick(element).perform();
     }
 
     public void oneClick(WebElement element) {
-        org.openqa.selenium.interactions.Actions action = new org.openqa.selenium.interactions.Actions(driver);
+        Actions action = new Actions(driver);
     action.click(element).perform();
     }
 }

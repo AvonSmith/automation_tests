@@ -24,4 +24,11 @@ public class Constants {
         public static final String COLOR_ATTRIBUTE = "color";
         public static final String RED_COLOR = "rgba(220, 53, 69, 1)";
     }
+    public static class UserData {
+        public static final String FIRST_NAME = "firstname";
+        public static final String LAST_NAME = "lastname";
+        public static final String EMAIL = "email";
+        public static final String PHONE = "phone";
+        public static final String ADDRESS = "address";
+    }
 }
