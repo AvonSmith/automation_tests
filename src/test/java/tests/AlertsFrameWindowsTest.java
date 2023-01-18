@@ -10,14 +10,20 @@ public class AlertsFrameWindowsTest extends BaseTest {
     @BeforeTest
     public void alertsFrameWindows() {
         page.open(frameworkProperties.getProperty(MAIN_URL));
-        afwPage.openBrowserWindows();
     }
 
     @Test
     public void alertTest() {
+        afwPage.openAlerts();
         afwPage.triggerSimpleAlert();
         afwPage.triggerTimerAlert();
         afwPage.triggerConfirmAlert();
         afwPage.triggerPromtAlert();
+    }
+
+    @Test
+    public void tabsAndWindowsTest() {
+        afwPage.openBrowserWindows();
+        afwPage.clickNewTabButton();
     }
 }

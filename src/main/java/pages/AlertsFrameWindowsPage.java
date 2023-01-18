@@ -1,6 +1,8 @@
 package pages;
 
 import helper.AlertHandler;
+import helper.Page;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,9 +12,11 @@ public class AlertsFrameWindowsPage extends BasePage{
     public AlertsFrameWindowsPage(WebDriver driver) {
         super(driver);
         alertHandler = new AlertHandler(driver);
+        page = new Page(driver);
     }
 
     private final AlertHandler alertHandler;
+    private final Page page;
 
     @FindBy(xpath = "//*[text()='Alerts, Frame & Windows']")
     private WebElement alertsFrameWindows;
@@ -20,8 +24,20 @@ public class AlertsFrameWindowsPage extends BasePage{
     @FindBy(xpath = "//span[text()='Alerts']")
     private WebElement alerts;
 
+    @FindBy(xpath = "//span[text()='Browser Windows']")
+    private WebElement browserWindows;
+
     @FindBy(xpath = "//button[@id='alertButton']")
     private WebElement alertButton;
+
+    @FindBy(xpath = "//button[@id='tabButton']")
+    private WebElement tabButton;
+
+    @FindBy(xpath = "//button[@id='windowButton']")
+    private WebElement windowButton;
+
+    @FindBy(xpath = "//button[@id='messageWindowButton']")
+    private WebElement messageWindowButton;
 
     @FindBy(xpath = "//button[@id='timerAlertButton']")
     private WebElement timerAlertButton;
@@ -56,8 +72,22 @@ public class AlertsFrameWindowsPage extends BasePage{
         alertHandler.acceptAlert();
     }
 
-    public void openBrowserWindows() {
+    public void openAlerts() {
         alertsFrameWindows.click();
         alerts.click();
+    }
+
+    public void openBrowserWindows() {
+        alertsFrameWindows.click();
+        browserWindows.click();
+    }
+
+    public void clickNewTabButton() {
+        page.setOriginalWindow();
+        tabButton.click();
+        page.setNextPage();
+        page.switchTabOrWindow(page.getNextWindow());
+//        System.out.println(driver.findElement(By.xpath("html")).getText());
+        page.closeTabOrWindow();
     }
 }

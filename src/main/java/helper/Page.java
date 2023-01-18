@@ -7,11 +7,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Set;
 
 import static constants.Constants.TimeoutVariable.EXPLICIT_WAIT;
 
 public class Page {
-    private WebDriver driver;
+    private final WebDriver driver;
+
+    private String originalWindow;
+
+    public String getNextWindow() {
+        return nextWindow;
+    }
+
+    private String nextWindow;
 
     public Page(WebDriver driver) {
         this.driver = driver;
@@ -40,7 +49,33 @@ public class Page {
         return new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element));
     }
 
-    public Boolean waitUntilChangeColor(WebElement element, String attribute, String value) {
-        return new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.attributeContains(element, attribute,value));
+    public void waitUntilChangeColor(WebElement element, String attribute, String value) {
+        new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.attributeContains(element, attribute, value));
+    }
+
+    public void setOriginalWindow() {
+        originalWindow = driver.getWindowHandle();
+        System.out.println("Original page url: " + getUrl());
+    }
+
+    public void setNextPage() {
+        Set<String> tabs = driver.getWindowHandles();
+        for (String tab : tabs) {
+            nextWindow = tab;
+        }
+    }
+
+    public void switchTabOrWindow(String string) {
+        driver.switchTo().window(string);
+        System.out.println("Switched page url: " + getUrl());
+    }
+
+    public void closeTabOrWindow() {
+        driver.close();
+        driver.switchTo().window(originalWindow);
+    }
+
+    public String getUrl() {
+        return driver.getCurrentUrl();
     }
 }
