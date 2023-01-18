@@ -3,6 +3,7 @@ package pages;
 import constants.Genders;
 import constants.Hobbies;
 import constants.States;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,7 +60,7 @@ public class FormsPage extends BasePage {
     @FindBy(xpath = "//*[@id='currentAddress']")
     private WebElement currentAddress;
 
-    @FindBy(xpath = "//div[@id='state']")
+    @FindBy(xpath = "//input[@id='react-select-9-input']")
     private WebElement states;
 
     @FindBy(xpath = "//span[@class='css-1laao21-a11yText']")
@@ -139,10 +140,17 @@ public class FormsPage extends BasePage {
         return this;
     }
 
-    public FormsPage pickState() {
+    public FormsPage pickState(States state) {
         states.click();
 //        stateSelectors.get(state.ordinal());
+        System.out.println(state.toString());
+        states.sendKeys("NCR");
+        states.sendKeys(Keys.ENTER);
         return this;
+    }
+
+    public WebElement getState() {
+        return states;
     }
 
 //    public FormsPage pickCity(EnumSet<States.Cities> city) {

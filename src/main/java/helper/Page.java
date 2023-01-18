@@ -1,6 +1,5 @@
 package helper;
 
-import driver_manager.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -14,8 +13,8 @@ import static constants.Constants.TimeoutVariable.EXPLICIT_WAIT;
 public class Page {
     private WebDriver driver;
 
-    public Page() {
-        driver = DriverManager.getDriver();
+    public Page(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 

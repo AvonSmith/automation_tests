@@ -79,11 +79,11 @@ public class ElementsTest extends BaseTest{
 
     @Test(groups = "buttons")
     public void buttonsTest() {
-        action.doubleClick(elementsPage.getDoubleClickButton());
+        elementsPage.doubleClickButton();
         Assert.assertTrue(elementsPage.getDoubleClickMessage());
-        action.rightClick(elementsPage.getRightClickButton());
+        elementsPage.rightClickButton();
         Assert.assertTrue(elementsPage.getRightClickMessage());
-        action.oneClick(elementsPage.getOneClickButton());
+        elementsPage.oneClickButton();
         Assert.assertTrue(elementsPage.getDynamicClickMessage());
     }
 
@@ -95,8 +95,8 @@ public class ElementsTest extends BaseTest{
 
     @Test(groups = "dynamicProperties")
     public void dynamicPropertiesTest() {
-        page.waitUntilElementIsClickable(elementsPage.getEnableAfterButton());
-        page.waitUntilElementIsVisible(elementsPage.getVisibleAfterButton());
-        page.waitUntilChangeColor(elementsPage.getColorChangeButton(), COLOR_ATTRIBUTE, RED_COLOR);
+        elementsPage.enableAfterButton();
+        elementsPage.visibleAfterButton();
+        elementsPage.colorChangeButton(COLOR_ATTRIBUTE, RED_COLOR);
     }
 }

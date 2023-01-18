@@ -1,8 +1,9 @@
 package pages;
 
+import helper.ActionsMethods;
+import helper.Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -11,7 +12,11 @@ public class ElementsPage extends BasePage {
 
     public ElementsPage(WebDriver driver) {
         super(driver);
+        actions = new ActionsMethods(driver);
+        page = new Page(driver);
     }
+    private ActionsMethods actions;
+    private Page page;
 
     @FindBy(xpath = "//input[@id='userName']")
     private WebElement fullName;
@@ -152,6 +157,30 @@ public class ElementsPage extends BasePage {
         return element.getText().split(":")[1];
     }
 
+    public void doubleClickButton() {
+        actions.doubleClick(doubleClickButton);
+    }
+
+    public void rightClickButton() {
+        actions.rightClick(rightClickButton);
+    }
+
+    public void oneClickButton() {
+        actions.oneClick(oneClickButton);
+    }
+
+    public void enableAfterButton() {
+        page.waitUntilElementIsClickable(enableAfterButton).click();
+    }
+
+    public void visibleAfterButton() {
+        page.waitUntilElementIsVisible(visibleAfterButton).click();
+    }
+
+    public void colorChangeButton(String attribute, String color) {
+        page.waitUntilChangeColor(colorChangeButton, attribute, color);
+    }
+
     public void openTextBox() {
         elements.click();
         textBox.click();
@@ -211,30 +240,6 @@ public class ElementsPage extends BasePage {
 
     public WebElement getOutputPermanentAddress() {
         return outputPermanentAddress;
-    }
-
-    public WebElement getDoubleClickButton() {
-        return doubleClickButton;
-    }
-
-    public WebElement getRightClickButton() {
-        return rightClickButton;
-    }
-
-    public WebElement getOneClickButton() {
-        return oneClickButton;
-    }
-
-    public WebElement getEnableAfterButton() {
-        return enableAfterButton;
-    }
-
-    public WebElement getColorChangeButton() {
-        return colorChangeButton;
-    }
-
-    public WebElement getVisibleAfterButton() {
-        return visibleAfterButton;
     }
 
     public Boolean getDoubleClickMessage() {
