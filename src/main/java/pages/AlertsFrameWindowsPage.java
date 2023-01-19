@@ -87,7 +87,23 @@ public class AlertsFrameWindowsPage extends BasePage{
         tabButton.click();
         page.setNextPage();
         page.switchTabOrWindow(page.getNextWindow());
-//        System.out.println(driver.findElement(By.xpath("html")).getText());
+        page.closeTabOrWindow();
+    }
+
+    public void clickNewWindowButton() {
+        page.setOriginalWindow();
+        windowButton.click();
+        page.setNextPage();
+        page.switchTabOrWindow(page.getNextWindow());
+        page.closeTabOrWindow();
+    }
+
+    public void clickNewMessageWindowButton() {
+
+        page.setOriginalWindow();
+        messageWindowButton.click();
+        page.setNextPage();
+        page.switchTabOrWindow(page.getNextWindow());
         page.closeTabOrWindow();
     }
 }

@@ -25,5 +25,7 @@ public class AlertsFrameWindowsTest extends BaseTest {
     public void tabsAndWindowsTest() {
         afwPage.openBrowserWindows();
         afwPage.clickNewTabButton();
+        afwPage.clickNewWindowButton();
+        afwPage.clickNewMessageWindowButton();
     }
 }

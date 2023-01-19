@@ -1,7 +1,9 @@
 package helper;
 
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -67,7 +69,6 @@ public class Page {
 
     public void switchTabOrWindow(String string) {
         driver.switchTo().window(string);
-        System.out.println("Switched page url: " + getUrl());
     }
 
     public void closeTabOrWindow() {
@@ -76,6 +77,7 @@ public class Page {
     }
 
     public String getUrl() {
+
         return driver.getCurrentUrl();
     }
 }
