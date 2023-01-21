@@ -6,24 +6,25 @@ import org.openqa.selenium.interactions.Actions;
 
 public class ActionsMethods {
 
-    private WebDriver driver;
+    private final Actions action;
 
     public ActionsMethods(WebDriver driver) {
-        this.driver = driver;
+        action = new Actions(driver);
     }
 
     public void doubleClick(WebElement element) {
-        Actions action = new Actions(driver);
         action.doubleClick(element).perform();
     }
 
     public void rightClick(WebElement element) {
-        Actions action = new Actions(driver);
         action.contextClick(element).perform();
     }
 
     public void oneClick(WebElement element) {
-        Actions action = new Actions(driver);
         action.click(element).perform();
+    }
+
+    public void dragFromTo(WebElement from, WebElement to) {
+        action.dragAndDrop(from, to).perform();
     }
 }

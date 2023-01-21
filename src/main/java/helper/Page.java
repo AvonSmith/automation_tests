@@ -35,7 +35,7 @@ public class Page {
 
     public static void sleepForFewSeconds() {
         try {
-            Thread.sleep (6000L);
+            Thread.sleep (2000L);
         } catch (Exception ignored) {}
     }
 

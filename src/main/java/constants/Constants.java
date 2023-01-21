@@ -23,6 +23,10 @@ public class Constants {
         public static final String IMPRESSIVE_RADIOBUTTON = "Impressive";
         public static final String COLOR_ATTRIBUTE = "color";
         public static final String RED_COLOR = "rgba(220, 53, 69, 1)";
+        public static final int FROM = 3;
+        public static final int TO = 5;
+        public static final String LIST = "list";
+        public static final String GRID = "grid";
     }
     public static class UserData {
         public static final String FIRST_NAME = "firstname";
