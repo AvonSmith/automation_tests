@@ -2,8 +2,6 @@ package pages;
 
 import constants.Genders;
 import constants.Hobbies;
-import constants.States;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -140,24 +138,9 @@ public class FormsPage extends BasePage {
         return this;
     }
 
-    public FormsPage pickState(States state) {
-        states.click();
-//        stateSelectors.get(state.ordinal());
-        System.out.println(state.toString());
-        states.sendKeys("NCR");
-        states.sendKeys(Keys.ENTER);
-        return this;
-    }
-
     public WebElement getState() {
         return states;
     }
-
-//    public FormsPage pickCity(EnumSet<States.Cities> city) {
-//        cities.click();
-//        citySelectors.get()
-//    }
-
 
     public String getDate() {
         return dateFormat;
