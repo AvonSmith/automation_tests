@@ -158,15 +158,15 @@ public class ElementsPage extends BasePage {
     }
 
     public void doubleClickButton() {
-        actions.doubleClick(doubleClickButton);
+        actions.doubleClickOn(doubleClickButton);
     }
 
     public void rightClickButton() {
-        actions.rightClick(rightClickButton);
+        actions.rightClickOn(rightClickButton);
     }
 
     public void oneClickButton() {
-        actions.oneClick(oneClickButton);
+        actions.oneClickOn(oneClickButton);
     }
 
     public void enableAfterButton() {

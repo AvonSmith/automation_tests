@@ -39,7 +39,7 @@ public class Page {
         } catch (Exception ignored) {}
     }
 
-//    public static void clickOn(WebElement element){
+//    public void clickOn(WebElement element){
 //        new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element)).click();
 //    }
 //
