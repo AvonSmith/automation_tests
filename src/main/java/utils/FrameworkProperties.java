@@ -7,10 +7,11 @@ import java.util.Properties;
 
 public class FrameworkProperties {
 
-    private String result = "";
+//    private String result = "";
     private InputStream inputStream;
 
     public String getProperty(String key){
+        String result = "";
         try {
             Properties properties = new Properties();
             String propFileName = "framework.properties";
@@ -23,7 +24,7 @@ public class FrameworkProperties {
                 throw new FileNotFoundException("The properties file has not been found");
             }
 
-            this.result = properties.getProperty(key);
+            result = properties.getProperty(key);
         } catch (IOException e) {
             e.printStackTrace();
         }

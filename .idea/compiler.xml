@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ThreadQa_testng" />
+        <module name="junit_cucumber" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ThreadQa_testng" target="11" />
+      <module name="junit_cucumber" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
