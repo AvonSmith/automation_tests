@@ -4,4 +4,13 @@
     <listeners>
         <listener class-name="allure.TestAllureListener"/>
     </listeners>
+    <test verbose="2" preserve-order="true"
+          name="ThreadQa">
+        <classes>
+            <class name="tests.AlertsFrameWindowsTest"/>
+            <class name="tests.ElementsTest"/>
+            <class name="tests.FormsTest"/>
+            <class name="tests.InteractionsTest"/>
+        </classes>
+    </test>
 </suite>

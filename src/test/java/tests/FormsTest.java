@@ -19,7 +19,7 @@ public class FormsTest extends BaseTest {
     }
 
     @Test
-    public void test() {
+    public void formTest() {
         formsPage.enterFirstName(frameworkProperties.getProperty(FIRST_NAME))
                 .enterLastName(frameworkProperties.getProperty(LAST_NAME))
                 .enterEmail(frameworkProperties.getProperty(EMAIL))

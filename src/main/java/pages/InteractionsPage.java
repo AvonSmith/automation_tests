@@ -59,17 +59,17 @@ public class InteractionsPage extends BasePage{
     private WebElement draggingPoint;
 
     public void openSortable() {
-        interactions.click();
+        page.waitUntilElementIsClickable(interactions).click();
         sortable.click();
     }
 
     public void openResizable() {
-        interactions.click();
+        page.waitUntilElementIsClickable(interactions).click();
         resizable.click();
     }
 
     public void openDroppable() {
-        interactions.click();
+        page.waitUntilElementIsClickable(interactions).click();
         droppable.click();
     }
 

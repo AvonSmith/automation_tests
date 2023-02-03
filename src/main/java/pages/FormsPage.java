@@ -2,6 +2,7 @@ package pages;
 
 import constants.Genders;
 import constants.Hobbies;
+import helper.Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +15,10 @@ public class FormsPage extends BasePage {
 
     public FormsPage(WebDriver driver) {
         super(driver);
+        page = new Page(driver);
     }
+
+    private Page page;
 
     @FindBy(xpath = "//*[text()='Forms']")
     private WebElement forms;
@@ -76,7 +80,7 @@ public class FormsPage extends BasePage {
     private String dateFormat = "";
 
     public void openPracticeForm() {
-        forms.click();
+        page.waitUntilElementIsClickable(forms).click();
         practiceForm.click();
     }
 

@@ -1,6 +1,6 @@
 package allure;
 
-import driver_manager.DriverManager;
+import driver_manager.DriverSingleton;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -37,7 +37,7 @@ public class TestAllureListener implements ITestListener {
     public void onTestFailure(ITestResult iTestResult) {
         System.out.println("I am in onTestFailure method " + getTestMethodName(iTestResult) + " failed");
         Object testClass = iTestResult.getInstance();
-        WebDriver driver = DriverManager.getDriver();
+        WebDriver driver = DriverSingleton.getDriver();
         // Allure ScreenShotRobot and SaveTestLog
         if (driver instanceof WebDriver) {
             System.out.println("Screenshot captured for test case:" + getTestMethodName(iTestResult));

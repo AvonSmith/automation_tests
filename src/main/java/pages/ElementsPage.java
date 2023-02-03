@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static helper.Page.sleepForFewSeconds;
+
 public class ElementsPage extends BasePage {
 
     public ElementsPage(WebDriver driver) {
@@ -158,6 +160,7 @@ public class ElementsPage extends BasePage {
     }
 
     public void doubleClickButton() {
+        page.waitUntilElementIsClickable(doubleClickButton);
         actions.doubleClickOn(doubleClickButton);
     }
 
