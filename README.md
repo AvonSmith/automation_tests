@@ -1,7 +1,7 @@
 # This GitHub repository provides a comprehensive example of automation testing for web applications using a combination of different tools.
 
 ### UI tests
->For UI testing, the repository leverages the _Selenium WebDriver_ tool along with the Actions Class to interact with the UI and simulate user actions. The __Page Object__ and __Page Factory__ patterns are used to encapsulate the elements and their interactions on a specific page, making the tests more readable and maintainable. All UI tests are run using the __TestNG__ framework, which provides a range of features to support test execution, such as parallel testing and test configuration through XML files.
+>For UI testing, the repository leverages the _Selenium WebDriver_ tool along with the Actions Class to interact with the UI and simulate user actions. The __Page Object__ and __Page Factory__ patterns are used to encapsulate the elements and their interactions on a specific page, making the tests more readable and maintainable. All UI tests are run using the __TestNG__ framework, which provides a range of features to support test execution, such as parallel testing and test configuration through XML files. Additionally, the implementation supports __cross-browser testing__, allowing for the same tests to be run on multiple browsers such as Chrome and Firefox.
 
 
 ### API tests
