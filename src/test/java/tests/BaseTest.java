@@ -10,8 +10,7 @@ import pages.FormsPage;
 import pages.InteractionsPage;
 import utils.FrameworkProperties;
 
-import static constants.Constants.ConnectorsVariables.CHROME;
-import static constants.Constants.ConnectorsVariables.FIREFOX;
+import static constants.Constants.ConnectorsVariables.*;
 
 public class BaseTest {
     protected FrameworkProperties frameworkProperties = new FrameworkProperties();

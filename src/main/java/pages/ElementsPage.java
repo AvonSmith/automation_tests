@@ -111,21 +111,23 @@ public class ElementsPage extends BasePage {
     private WebElement dynamicClickMessage;
 
     public void pickRadioButton(String radioButton) {
-        if (radioButton.equals("Yes"))
-            yesRadioButton.click();
-        else if (radioButton.equals("Impressive"))
-            impressiveRadioButton.click();
-        else
-            System.out.println("Wrong radio button selection parameter!");
+        switch (radioButton) {
+            case "Yes":
+                yesRadioButton.click();
+                break;
+            case "Impressive":
+                impressiveRadioButton.click();
+                break;
+            default:
+                System.out.println("Wrong radio button selection parameter!");
+        }
     }
+
 
     // For the 'Yes' use assertTrue, for the 'Impressive' use assertFalse
     public Boolean radioButtonResult() {
-        if (radioButtonResult.getText().equals("Yes"))
-            return true;
-        else if (radioButtonResult.getText().equals("Impressive"))
-            return false;
-        else return null;
+        String text = radioButtonResult.getText();
+        return "Yes".equals(text) ? Boolean.TRUE : "Impressive".equals(text) ? Boolean.FALSE : null;
     }
 
     public ElementsPage enter(WebElement element, String text) {
@@ -136,6 +138,7 @@ public class ElementsPage extends BasePage {
 
     public void checkAllCheckBoxes() {
         expandList.click();
+        //checkboxes should be checked from the bottom because first checkbox triggers the others
         for (int i = checkboxList.size() - 1; i >= 0; i--) {
             if (checkBoxState.get(i).getAttribute("class").contains("uncheck"))
             checkboxList.get(i).click();
@@ -143,16 +146,7 @@ public class ElementsPage extends BasePage {
     }
 
     public Boolean checkboxState() {
-        boolean result = false;
-        for (int i = 0; i < checkboxList.size(); i++) {
-            if (checkBoxState.get(i).getAttribute("class").equals("rct-icon rct-icon-check"))
-                result = true;
-            else {
-                result = false;
-                break;
-            }
-        }
-        return result;
+        return checkBoxState.stream().allMatch(x -> x.getAttribute("class").equals("rct-icon rct-icon-check"));
     }
 
     public String getOutput(WebElement element) {

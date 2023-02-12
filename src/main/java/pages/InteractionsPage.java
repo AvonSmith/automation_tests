@@ -74,12 +74,12 @@ public class InteractionsPage extends BasePage{
     }
 
     public void moveElements(String mapping, int from, int to) {
-        if (mapping.equals("list")) {
+        if (mapping.equals(LIST)) {
             listMapping.click();
             sleepForFewSeconds();
             setElementMovedFrom(movedElement(mapping, from));
             action.dragFromTo(listOfElements.get(from), listOfElements.get(to));
-        }else if (mapping.equals("grid")) {
+        }else if (mapping.equals(GRID)) {
             gridMapping.click();
             sleepForFewSeconds();
             setElementMovedFrom(movedElement(mapping, from));
@@ -96,6 +96,7 @@ public class InteractionsPage extends BasePage{
         } else if (mapping.equals(GRID)) {
             return gridOfElements.get(index).getText();
         } else {
+            Assert.fail("Wrong mapping selector");
             return null;
         }
     }
